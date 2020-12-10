@@ -1,0 +1,25 @@
+import Piratas.*
+
+describe "Test sobre Piratas Arrrgggghh"{
+
+var JackSparrow
+var donato
+
+fixture {		
+	JackSparrow = new Pirata (tipoPirata = jackSparrow, energia = 500, poderDePelea = 200,inteligencia = 300, ingredientes = #{"votellaDeRon"} , moral = 0, vitalidad = 0)
+	donato = new Pirata (tipoPirata = cocineroPirata, energia = 100, poderDePelea = 150, vitalidad =50, inteligencia = 300, ingredientes =#{"pasta","sal","vino"}, moral =100)
+	    }
+test "El poder de mando de jack es de 30.000.000" {
+  assert.equals(30000000, JackSparrow.poderDelMando())
+}
+
+test "JackSparrow toma ron con donato"{
+	JackSparrow.tomarRonConOtro(donato)
+	assert.equals(50, donato.energia())
+	assert.equals(600, JackSparrow.energia())
+	assert.equals(2, JackSparrow.cantidadDeIngredientes())
+	assert.equals(2, donato.cantidadDeIngredientes())
+}
+
+
+}
